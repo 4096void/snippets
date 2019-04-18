@@ -1,5 +1,5 @@
 /**
- * A really really naive tree traverser.
+ * A really really naive tree depth-first traverser.
  * @constructor
  * @param {object} tree - a simple nested tree.
  *
@@ -35,3 +35,24 @@ const tt = tree => {
 
   return rs;
 };
+
+/**
+ * Return first key of simple object like { name: 'value' }.
+ * @constructor
+ * @param {object} o - objects like { name: 'value' }.
+ */
+const fk = o => { for (k in o) { return k; } };
+
+/**
+ * Return first value of simple object like { name: 'value' }.
+ * @constructor
+ * @param {object} o - objects like { name: 'value' }.
+ */
+const fv = o => { for (k in o) { return o[k]; } };
+
+/**
+ * Return whatever into.
+ * @constructor
+ * @param {any} id - anthing.
+ */
+const id = i => i;
