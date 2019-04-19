@@ -1,10 +1,23 @@
 /**
+ * First key.
+ * @constructor
+ * @param {object} o - object.
+ */
+const fk = o => { for (k in o) { return k; } };
+
+/**
+ * First value.
+ * @constructor
+ * @param {object} o - object.
+ */
+const fv = o => { for (k in o) { return o[k]; } };
+
+/**
  * Traverse nodes of a tree with specific depth, with { `nodeName`: `nodeValue` }.
  * @constructor
  * @param {object} tree - a simple nested tree.
  * @param {number} d - specific depth, default to `Infinity`(get all the leaf nodes).
  * @param {string} t - the name of root, default to `treename`.
- *
  */
 const tt = (
   tree,
@@ -35,6 +48,38 @@ const tt = (
   }
 
   return rs;
+};
+
+/**
+ * Return how many KV pairs there are in nodes `with specificed depth`.
+ * @constructor
+ * @param {object} tree - tree.
+ * @param {number} d - specificed depth.
+ */
+const ts = (
+  tree,
+  d = 0,
+) => {
+  return tt(tree, d).map(i => {
+    let item = {};
+    item[fk(i)] = tt(fv(i)).length;
+    return item;
+  });
+};
+
+/**
+ * Return the depth of tree.
+ * @constructor
+ * @param {object} tree - tree.
+ */
+const td = tree => {
+  let d = 0;
+  while (typeof tree === 'object') {
+    d += 1;
+    tree = fv(tree);
+  }
+
+  return d;
 };
 
 /**
