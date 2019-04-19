@@ -19,7 +19,7 @@
  *  },
  * };
  *
- * tt(test) // [...4 ...6 ...8]
+ * tt(test); // [...4 ...6 ...8]
  */
 const tt = tree => {
   let rs = [];
@@ -37,21 +37,21 @@ const tt = tree => {
 };
 
 /**
- * Return first key of simple object like { name: 'value' }.
+ * Return first value of object `with only one key-value pair`.
  * @constructor
  * @param {object} o - objects like { name: 'value' }.
  */
 const fk = o => { for (k in o) { return k; } };
 
 /**
- * Return first value of simple object like { name: 'value' }.
+ * Return first value of object `with only one key-value pair`.
  * @constructor
  * @param {object} o - objects like { name: 'value' }.
  */
 const fv = o => { for (k in o) { return o[k]; } };
 
 /**
- * Return whatever into.
+ * Return anything that was passed into.
  * @constructor
  * @param {any} id - anthing.
  */
